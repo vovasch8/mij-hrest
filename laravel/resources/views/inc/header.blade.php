@@ -10,7 +10,33 @@
             <li><a href="{{route('calendar')}}" class="nav-link px-2 link-dark">Календар</a></li>
             <li><a href="{{route('forum')}}" class="nav-link px-2 link-dark">Форум</a></li>
             <li><a href="{{route('dictionary')}}" class="nav-link px-2 link-dark">Словник</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+            @if (Route::has('login'))
+                    @auth
+                    <div class="dropdown">
+                        <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Профіль</a></li>
+                            <li><a class="dropdown-item" href="#">Адмін панель</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li style="cursor: pointer">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Вийти</a>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+{{--                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>--}}
+                    @else
+                        <li><a href="{{ route('login') }}" class="nav-link px-2 link-dark">Вхід</a></li>
+                        @if (Route::has('register'))
+{{--                            <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a></li>--}}
+                        @endif
+                    @endauth
+            @endif
         </ul>
 
     </header>

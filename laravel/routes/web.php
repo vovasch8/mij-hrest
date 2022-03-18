@@ -21,10 +21,16 @@ Route::get('/forum', function () {
     return view('forum');
 })->name('forum');
 
-Route::get('/calendar', function (){
-   return view('calendar');
+Route::get('/calendar', function () {
+    return view('calendar');
 })->name('calendar');
 
-Route::get('/dictionary', function (){
-   return view('dictionary');
+Route::get('/dictionary', function () {
+    return view('dictionary');
 })->name('dictionary');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -6,7 +6,9 @@
 .title-logo {
     margin-left: 10px;
 }
-
+#link-register{
+    float: right;
+}
 .text h6{
     display: inline;
 }
@@ -15,7 +17,7 @@
     border-radius: 25px;
 }
 .wpb_wrapper{
-    width: 400px;
+    max-width: 600px;
 }
 .letter{
     font-weight: bold;
@@ -32,3 +34,4 @@
 .letter-list a{
     color: black;
 }
+

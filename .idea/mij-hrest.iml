@@ -117,6 +117,7 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/phpspec/prophecy" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/phpunit/php-invoker" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/laravel/breeze" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
