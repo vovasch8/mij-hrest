@@ -28,7 +28,7 @@
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
-                        NEW DISCUSSION
+                        Нова Тема
                     </button>
                 </div>
                 <!-- /Inner sidebar header -->
@@ -70,14 +70,12 @@
                 <div class="inner-main-header">
                     <a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>
                     <select class="custom-select custom-select-sm w-auto mr-1">
-                        <option selected="">Latest</option>
-                        <option value="1">Popular</option>
-                        <option value="3">Solved</option>
-                        <option value="3">Unsolved</option>
-                        <option value="3">No Replies Yet</option>
+                        <option selected="">Останні</option>
+                        <option value="1">Найбільше переглядів</option>
+                        <option value="3">Найбільше коментарів</option>
                     </select>
                     <span class="input-icon input-icon-sm ml-auto w-auto">
-                    <input type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Search forum" />
+                    <input type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Пошук на форумі" />
                 </span>
                 </div>
                 <!-- /Inner main header -->
@@ -297,8 +295,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="threadTitle">Title</label>
-                                <input type="text" class="form-control" id="threadTitle" placeholder="Enter title" autofocus="" />
+                                <label for="threadTitle">Тема</label>
+                                <input type="text" class="form-control" id="threadTitle" placeholder="Введіть тему" autofocus="" />
                             </div>
                             <textarea class="form-control summernote" style="display: none;"></textarea>
 
