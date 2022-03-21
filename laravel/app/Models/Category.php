@@ -9,4 +9,8 @@ class Category extends Model
 {
     public $timestamps = false;
     use HasFactory;
+
+    public function getNameById($id){
+        return Category::find($id)->name;
+    }
 }

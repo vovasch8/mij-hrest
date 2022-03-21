@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Block;
+use App\Models\Category;
 use App\Models\Link;
 use Illuminate\Http\Request;
 
@@ -13,6 +15,13 @@ class AdminController extends Controller
         $link = new Link();
 
         return view("admin/admin-home", ['blocks' => $block->all(), 'links' => $link->all()]);
+    }
+    public function showArticlesPanel(){
+        $article = new Article();
+        $category = new Category();
+        $link = new Link();
+
+        return view("admin/admin-articles", ['articles' => $article->all(), 'categories' => $category->all(), 'links' => $link->all()]);
     }
     public function addBlock(Request $rec){
         $block = new Block();

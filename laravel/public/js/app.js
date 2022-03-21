@@ -5641,7 +5641,71 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start(); //Shareon.init();
+//Site scripts
+//End site scripts
+//Admin panel scripts
+//admin-home page
+
+var editLinkBtns = document.querySelectorAll('.btn-edit-link');
+var deleteLinkBtns = document.querySelectorAll('.btn-delete-link');
+var addLinkBtns = document.querySelectorAll('.btn-add-link');
+var addSaveLinkBtn = document.getElementById('saveBlock');
+addLinkBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('addLinkIdBlock').setAttribute('value', this.getAttribute('id_block'));
+  });
+});
+editLinkBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editLinkId').setAttribute('value', this.getAttribute('id_link'));
+    document.getElementById('editLinkIdBlock').setAttribute('value', this.getAttribute('id_block'));
+    var name = this.parentNode.parentNode.querySelector('.td-name').textContent;
+    var link = this.parentNode.parentNode.querySelector('.td-link').textContent;
+    var sort = this.parentNode.parentNode.querySelector('.td-sort').textContent;
+    document.getElementById('editNameInput').value = name;
+    document.getElementById('editLinkInput').value = link;
+    document.getElementById('editSortInput').value = sort;
+  });
+});
+deleteLinkBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteLinkId').setAttribute('value', this.getAttribute('id_link'));
+  });
+});
+addSaveLinkBtn.addEventListener('click', function handleClick(event) {
+  document.getElementById('addLinkIdBlock').setAttribute('value', '3');
+}); //admin-articles page
+
+var editArticleBtns = document.querySelectorAll('.btn-edit-article');
+var deleteArticleBtns = document.querySelectorAll('.btn-delete-article');
+var addArticleBtns = document.querySelectorAll('.btn-add-article');
+addArticleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('addArticleIdCategory').setAttribute('value', this.getAttribute('id_category'));
+  });
+});
+editArticleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editArticleId').setAttribute('value', this.getAttribute('id_article'));
+    document.getElementById('editArticleIdCategory').setAttribute('value', this.getAttribute('id_category'));
+    var subject = this.parentNode.parentNode.querySelector('.td-subject').textContent;
+    var content = this.parentNode.parentNode.querySelector('.td-content').textContent;
+    var image = this.parentNode.parentNode.querySelector('.td-image').textContent;
+    var video = this.parentNode.parentNode.querySelector('.td-video').textContent;
+    document.getElementById('editSubjectInput').value = subject;
+    var iframe = document.getElementsByTagName("iframe")[1];
+    var el = iframe.contentWindow.document.getElementsByTagName("body")[0];
+    el.innerHTML = content;
+    document.getElementById('editImageInput').value = image;
+    document.getElementById('editVideoInput').value = video;
+  });
+});
+deleteArticleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteArticleId').setAttribute('value', this.getAttribute('id_article'));
+  });
+}); //End admin panel scripts
 
 /***/ }),
 

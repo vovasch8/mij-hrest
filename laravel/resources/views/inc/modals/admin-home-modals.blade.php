@@ -48,15 +48,15 @@
                     <input type="hidden" name="id_block" id="editLinkIdBlock">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Назва посилання</span>
-                        <input type="text" class="form-control" name="name">
+                        <input id="editNameInput" type="text" class="form-control" name="name">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Посилання</span>
-                        <input type="text" class="form-control" name="link">
+                        <input id="editLinkInput" type="text" class="form-control" name="link">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Номер сортування</span>
-                        <input type="number" class="form-control" name="sort">
+                        <input id="editSortInput" type="number" class="form-control" name="sort">
                     </div>
                 </div>
                 <div class="modal-footer">

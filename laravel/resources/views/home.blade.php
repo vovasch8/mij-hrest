@@ -10,35 +10,29 @@
                     Статті
                 </h3>
                 <div class="row mb-2">
-                    <div class="col-md-12">
-                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">World</strong>
-                                <h3 class="mb-0">Featured post</h3>
-                                <div class="mb-1 text-muted">Nov 12</div>
-                                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="stretched-link">Continue reading</a>
-                            </div>
-                            <div class="col-auto d-none d-lg-block">
-                                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                            </div>
+                        <div class="mb-3 category-block">
+                            <a href="{{route('home')}}"><span class="badge rounded-pill bg-secondary btn-category">Всі</span></a>
+                            @foreach($category->all() as $c)
+                                <a href="{{route('filter-articles', $c->id)}}"><span class="badge rounded-pill bg-secondary btn-category">{{$c->name}}</span></a>
+                            @endforeach
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-success">Design</strong>
-                                <h3 class="mb-0">Post title</h3>
-                                <div class="mb-1 text-muted">Nov 11</div>
-                                <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="stretched-link">Continue reading</a>
+                    <div id="articles-content">
+                        @foreach($articles as $article)
+                            <div class="col-md-12">
+                                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                    <div class="col p-4 d-flex flex-column position-static">
+                                        <strong class="d-inline-block mb-2 text-success">{{$category->getNameById($article->id_category)}}</strong>
+                                        <h3 class="mb-0">{{$article->subject}}</h3>
+                                        <div class="mb-1 text-muted">{{$article->updated_at->format('d.m H:i')}}</div>
+                                        <p class="mb-auto art-text">{{mb_substr(strip_tags($article->content), 0, 100) . '...'}}</p>
+                                        <a href="{{route('article', $article->id)}}" class="stretched-link">Продовжити читати</a>
+                                    </div>
+                                    <div class="col-auto img-fluid art-div">
+                                        <img id="art-image" class="img-thumbnail" src="{{$article->image}}" alt="{{$category->getNameById($article->id_category)}}">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-auto d-none d-lg-block">
-                                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -50,3 +44,4 @@
 
     </main>
 @endsection
+

@@ -12,4 +12,7 @@ class UserController extends Controller
     public function deleteUser(){
 
     }
+    public function editProfile(){
+
+    }
 }

@@ -18,7 +18,7 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Профіль</a></li>
+                            <li><a class="dropdown-item" href="{{route('profile')}}">Профіль</a></li>
                             <li><a class="dropdown-item" href="{{route('admin-home')}}">Адмін панель</a></li>
                             <li><hr class="dropdown-divider">
                             <li style="cursor: pointer">

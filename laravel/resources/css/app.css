@@ -34,4 +34,53 @@
 .letter-list a{
     color: black;
 }
+#art-image{
+    width: 300px;
+    height: 200px;
+    margin-right: 5px;
+}
+.art-div{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.article-image{
+    float: right;
+    width: 300px;
+    height: 200px;
+    margin-left: 20px;
+    margin-top: 120px;
+}
+.content{
+    font-family: cursive;
+}
+.article-subject{
+    font-family: auto;
+    font-weight: bold;
+}
+.article-content, .art-text{
+    text-align: justify;
+}
+.category-block span:hover{
+    cursor: pointer;
+    background: #1a202c;
+}
+@media (max-width: 992px) {
+    .article-image{
+        width: 100%;
+        margin-bottom: 10px;
+        margin-top: 0px;
+        height: auto;
+    }
+}
 
+@media (max-width: 991px) {
+    .art-div{
+        text-align: center!important;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    #art-image{
+        width: 400px;
+        height: 250px;
+    }
+}

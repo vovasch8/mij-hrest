@@ -2,13 +2,13 @@
     <div class="position-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link link-dark" aria-current="page" href="#">
+                <a class="nav-link link-dark" aria-current="page" href="{{route('admin-home')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                     Головна
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link link-dark" href="#">
+                <a class="nav-link link-dark" href="{{route('admin-articles')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                     Статті
                 </a>
@@ -29,7 +29,7 @@
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>Збережено</span>
-            <a class="link-secondary" href="#" aria-label="Додати посилання" data-bs-toggle="modal" data-bs-target="#addLinkModal" onclick="document.getElementById('addLinkIdBlock').setAttribute('value', '3');">
+            <a id="saveBlock" class="link-secondary" href="#" aria-label="Додати посилання" data-bs-toggle="modal" data-bs-target="#addLinkModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
             </a>
         </h6>
