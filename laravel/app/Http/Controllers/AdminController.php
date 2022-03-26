@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Block;
 use App\Models\Category;
+use App\Models\ForumCategory;
 use App\Models\Link;
+use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,6 +25,19 @@ class AdminController extends Controller
         $link = new Link();
 
         return view("admin/admin-articles", ['articles' => $article->all(), 'categories' => $category->all(), 'links' => $link->all()]);
+    }
+    public function showUsersPanel(){
+        $link = new Link();
+        $user = new User();
+
+        return view("admin/admin-users", [ 'links' => $link->all(), 'users' => $user->all()]);
+    }
+    public function showForumPanel(){
+        $link = new Link();
+        $category = new ForumCategory();
+        $topic = new Topic();
+
+        return view("admin/admin-forum", [ 'links' => $link->all(), 'categories' => $category->all(), 'topics' => $topic]);
     }
     public function addBlock(Request $rec){
         $block = new Block();

@@ -1,6 +1,6 @@
-@extends('layout.app')
+@extends('layout.admin')
 
-@section('title-category') Головна @endsection
+@section('title-category') Статті @endsection
 
 @section('content')
     <div class="container">

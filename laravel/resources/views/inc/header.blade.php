@@ -19,7 +19,9 @@
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{route('profile')}}">Профіль</a></li>
-                            <li><a class="dropdown-item" href="{{route('admin-home')}}">Адмін панель</a></li>
+                            @if(Auth::user()->role == 'admin')
+                                <li><a class="dropdown-item" href="{{route('admin-home')}}">Адмін панель</a></li>
+                            @endif
                             <li><hr class="dropdown-divider">
                             <li style="cursor: pointer">
                                 <form method="POST" action="{{ route('logout') }}">

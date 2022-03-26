@@ -9,8 +9,21 @@ Alpine.start();
 //Shareon.init();
 
 //Site scripts
+$('.avatars img').click(function() {
+    $('.avatars img').each(function() {
+        $(this).removeClass("active-avatar");
+    });
+    $(this).addClass("active-avatar");
+    $('#avatar').val(this.getAttribute('numberAvatar'));
+});
 
+$( document ).scroll( function() {
+    if( $( document ).scrollTop() + $( window ).height() === $( document ).height()) {
+        console.log('scroll');
+    }
+});
 //End site scripts
+
 
 
 //Admin panel scripts
@@ -19,7 +32,6 @@ Alpine.start();
 const editLinkBtns = document.querySelectorAll('.btn-edit-link');
 const deleteLinkBtns = document.querySelectorAll('.btn-delete-link');
 const addLinkBtns = document.querySelectorAll('.btn-add-link');
-const addSaveLinkBtn = document.getElementById('saveBlock');
 
 addLinkBtns.forEach(btn => {
     btn.addEventListener('click', function handleClick(event) {
@@ -44,9 +56,10 @@ deleteLinkBtns.forEach(btn => {
     });
 });
 
-addSaveLinkBtn.addEventListener('click', function handleClick(event){
+function addInSaveBlock(){
+    alert(5);
     document.getElementById('addLinkIdBlock').setAttribute('value', '3');
-})
+}
 
 //admin-articles page
 const editArticleBtns = document.querySelectorAll('.btn-edit-article');
@@ -80,5 +93,20 @@ deleteArticleBtns.forEach(btn => {
     });
 });
 
-//End admin panel scripts
+//admin-users page
+const editRoleBtns = document.querySelectorAll('.btn-edit-role');
+const deleteUserBtns = document.querySelectorAll('.btn-delete-user');
 
+editRoleBtns.forEach(btn => {
+    btn.addEventListener('click', function handleClick(event) {
+        document.getElementById('editRoleId').setAttribute('value', this.getAttribute('id_user'));
+        let role = this.parentNode.parentNode.querySelector('.td-role').textContent;
+        document.getElementById('editRoleInput').value = role;
+    });
+});
+deleteUserBtns.forEach(btn => {
+    btn.addEventListener('click', function handleClick(event) {
+        document.getElementById('deleteUserId').setAttribute('value', this.getAttribute('id_user'));
+    });
+});
+//End admin panel scripts

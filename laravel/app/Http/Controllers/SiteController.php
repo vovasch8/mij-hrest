@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\ForumCategory;
 use App\Models\Link;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -14,7 +16,7 @@ class SiteController extends Controller
         $link = new Link();
         $category = new Category();
 
-        return view('home', ['articles' => $article->all(), 'links' => $link->all(), 'category' => $category]);
+        return view('home', ['articles' => $article->all()->take(10), 'links' => $link->all(), 'category' => $category]);
     }
     public function showArticle($id){
         $article = new Article();
@@ -36,8 +38,11 @@ class SiteController extends Controller
     }
     public function showForum(){
         $link = new Link();
-        return view('forum', ['links' => $link->all()]);
+        $category = new ForumCategory();
+        $topic = new Topic();
+        return view('forum', ['categories' => $category->all(), 'topics' => $topic->all()->sortByDesc('id'), 'active' => 0]);
     }
+
     public function showDictionary(){
         $link = new Link();
         return view('dictionary', ['links' => $link->all()]);

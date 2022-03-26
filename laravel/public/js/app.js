@@ -5643,14 +5643,25 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start(); //Shareon.init();
 //Site scripts
-//End site scripts
+
+$('.avatars img').click(function () {
+  $('.avatars img').each(function () {
+    $(this).removeClass("active-avatar");
+  });
+  $(this).addClass("active-avatar");
+  $('#avatar').val(this.getAttribute('numberAvatar'));
+});
+$(document).scroll(function () {
+  if ($(document).scrollTop() + $(window).height() === $(document).height()) {
+    console.log('scroll');
+  }
+}); //End site scripts
 //Admin panel scripts
 //admin-home page
 
 var editLinkBtns = document.querySelectorAll('.btn-edit-link');
 var deleteLinkBtns = document.querySelectorAll('.btn-delete-link');
 var addLinkBtns = document.querySelectorAll('.btn-add-link');
-var addSaveLinkBtn = document.getElementById('saveBlock');
 addLinkBtns.forEach(function (btn) {
   btn.addEventListener('click', function handleClick(event) {
     document.getElementById('addLinkIdBlock').setAttribute('value', this.getAttribute('id_block'));
@@ -5673,9 +5684,12 @@ deleteLinkBtns.forEach(function (btn) {
     document.getElementById('deleteLinkId').setAttribute('value', this.getAttribute('id_link'));
   });
 });
-addSaveLinkBtn.addEventListener('click', function handleClick(event) {
+
+function addInSaveBlock() {
+  alert(5);
   document.getElementById('addLinkIdBlock').setAttribute('value', '3');
-}); //admin-articles page
+} //admin-articles page
+
 
 var editArticleBtns = document.querySelectorAll('.btn-edit-article');
 var deleteArticleBtns = document.querySelectorAll('.btn-delete-article');
@@ -5704,6 +5718,21 @@ editArticleBtns.forEach(function (btn) {
 deleteArticleBtns.forEach(function (btn) {
   btn.addEventListener('click', function handleClick(event) {
     document.getElementById('deleteArticleId').setAttribute('value', this.getAttribute('id_article'));
+  });
+}); //admin-users page
+
+var editRoleBtns = document.querySelectorAll('.btn-edit-role');
+var deleteUserBtns = document.querySelectorAll('.btn-delete-user');
+editRoleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editRoleId').setAttribute('value', this.getAttribute('id_user'));
+    var role = this.parentNode.parentNode.querySelector('.td-role').textContent;
+    document.getElementById('editRoleInput').value = role;
+  });
+});
+deleteUserBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteUserId').setAttribute('value', this.getAttribute('id_user'));
   });
 }); //End admin panel scripts
 

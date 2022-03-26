@@ -13,7 +13,7 @@
                         <div class="mb-3 category-block">
                             <a href="{{route('home')}}"><span class="badge rounded-pill bg-secondary btn-category">Всі</span></a>
                             @foreach($category->all() as $c)
-                                <a href="{{route('filter-articles', $c->id)}}"><span class="badge rounded-pill bg-secondary btn-category">{{$c->name}}</span></a>
+                                <a href="{{route('category-articles', $c->id)}}"><span class="badge rounded-pill bg-secondary btn-category">{{$c->name}}</span></a>
                             @endforeach
                         </div>
                     <div id="articles-content">
