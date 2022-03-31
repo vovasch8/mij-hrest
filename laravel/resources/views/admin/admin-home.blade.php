@@ -23,7 +23,7 @@
                     @foreach($blocks as $block)
                         <h5 class="d-inline">#{{$block->id}} - {{$block->name}} </h5><button id_block="{{$block->id}}" type="button" class="btn btn-sm btn-outline-secondary mb-1 btn-add-link" data-bs-toggle="modal" data-bs-target="#addLinkModal">+</button>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>ID</th>

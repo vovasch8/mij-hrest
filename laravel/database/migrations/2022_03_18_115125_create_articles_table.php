@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('id_category');
             $table->string('image')->nullable();
             $table->string('video')->nullable();
+            $table->integer('views')->default(0);
+            $table->string('source')->nullable();
             $table->timestamps();
         });
     }

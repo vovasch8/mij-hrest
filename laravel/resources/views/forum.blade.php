@@ -8,7 +8,9 @@
     @include('inc.messages')
     <!-- Inner main header -->
         <div class="inner-main-header">
-            <a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>
+            <a id="btn-sidebar" class="nav-link nav-icon rounded-circle nav-link-faded d-md-none">
+                <img src="https://img.icons8.com/material-outlined/18/000000/menu--v1.png"/>
+            </a>
             <select id="sort" class="custom-select custom-select-sm w-auto mr-1" onchange="sortTopics()">
                 <option value="1" selected>Останні</option>
                 <option value="2">Найбільше переглядів</option>
@@ -36,7 +38,11 @@
                                 </span>
                                 <div class="mt-3 font-size-sm">
                                     <p>
-                                        {{$topic->message}}
+                                        @if(strlen($topic->message) > 700)
+                                            {{mb_substr($topic->message, 0, 700) . '...'}}
+                                        @else
+                                            {{$topic->message}}
+                                        @endif
                                     </p>
                                 </div>
                                 <span>
@@ -86,5 +92,16 @@
                 });
             }
         })
+        var count = 0;
+        let btn_sidebar = document.getElementById('btn-sidebar');
+        btn_sidebar.addEventListener('click', function handleClick(event) {
+            count++;
+            if(count % 2 != 0){
+                document.getElementById('forumSidebar').style.left = '0px';
+                document.getElementById('forumSidebar').style.marginTop = '185px';
+            }else{
+                document.getElementById('forumSidebar').style.left = '-250px';
+            }
+        });
     </script>
 @endsection

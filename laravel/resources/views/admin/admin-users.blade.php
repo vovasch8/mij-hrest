@@ -21,7 +21,10 @@
 
                 <div class="container">
                     <div class="table-responsive">
-                            <table class="table table-bordered">
+                        <div class="pagination float-end link-dark">
+                            {!! $users->links() !!}
+                        </div>
+                            <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -52,6 +55,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
                     </div>
                 </div>
             </main>

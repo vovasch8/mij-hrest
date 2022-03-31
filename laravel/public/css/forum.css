@@ -76,15 +76,28 @@ body{
 @media (max-width: 767.98px) {
     .inner-sidebar {
         left: -250px;
+        margin-top: 137px;
     }
     .inner-main {
         left: 0;
+        margin-top: 129px;
     }
     .inner-expand .main-body {
         overflow: hidden;
     }
     .inner-expand .inner-wrapper {
         transform: translate3d(250px, 0, 0);
+    }
+    header a{
+        justify-content: center!important;
+    }
+}
+@media (max-width: 450px) {
+    .inner-main-header{
+        margin-top: 20px;
+    }
+    #forumSidebar{
+        margin-top: 205px!important;
     }
 }
 

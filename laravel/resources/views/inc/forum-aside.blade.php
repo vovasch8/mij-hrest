@@ -1,5 +1,5 @@
 <!-- Inner sidebar -->
-<div class="inner-sidebar">
+<div id="forumSidebar" class="inner-sidebar">
     <!-- Inner sidebar header -->
     <div class="inner-sidebar-header justify-content-center">
         <button  class="btn btn-primary has-icon btn-block" type="button" @auth  data-toggle="modal" data-target="#createTopicModal" @else onclick="window.location.href='{{route('login')}}'" @endauth>

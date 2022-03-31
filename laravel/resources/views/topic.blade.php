@@ -8,7 +8,9 @@
     @include('inc.messages')
     <!-- Inner main header -->
         <div class="inner-main-header">
-            <a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>
+            <a id="btn-sidebar" class="nav-link nav-icon rounded-circle nav-link-faded d-md-none" href="#" data-toggle="inner-sidebar">
+                <img src="https://img.icons8.com/material-outlined/18/000000/menu--v1.png"/>
+            </a>
             <span id="back" class="btn btn-secondary btn-sm has-icon" onclick="history.back()"><i class="fa fa-arrow-left mr-2"></i>Назад</span>
             <span class="input-icon input-icon-sm ml-auto w-auto">
                     <input id="searchReply" type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Пошук по повідомленях" />
@@ -177,6 +179,18 @@
         $('.intercom-emoji-picker-group span').click(function (){
             let area = $('#message-area').val();
             $('#message-area').val(area + this.textContent);
+        });
+
+        var count = 0;
+        let btn_sidebar = document.getElementById('btn-sidebar');
+        btn_sidebar.addEventListener('click', function handleClick(event) {
+            count++;
+            if(count % 2 != 0){
+                document.getElementById('forumSidebar').style.left = '0px';
+                document.getElementById('forumSidebar').style.marginTop = '185px';
+            }else{
+                document.getElementById('forumSidebar').style.left = '-250px';
+            }
         });
     </script>
 @endsection

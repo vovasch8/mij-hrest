@@ -10,7 +10,7 @@
                     Статті
                 </h3>
                 <div class="row mb-2">
-                        <div class="mb-3 category-block">
+                        <div id="article-category-block" @if(isset($active)) active="{{$active}}" @else active="0" @endif class="mb-3 category-block">
                             <a href="{{route('home')}}"><span class="badge rounded-pill bg-secondary btn-category">Всі</span></a>
                             @foreach($category->all() as $c)
                                 <a href="{{route('category-articles', $c->id)}}"><span class="badge rounded-pill bg-secondary btn-category">{{$c->name}}</span></a>
@@ -34,6 +34,9 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="load-more text-center">
+                        <button id="load-more" class="btn btn-secondary">Загрузити ще...</button>
+                    </div>
                 </div>
 
 
@@ -43,5 +46,25 @@
         </div>
 
     </main>
+    <script>
+        let loadMoreBtn = document.getElementById('load-more');
+        var counter = 0;
+        loadMoreBtn.addEventListener("click", function(){
+
+            var block = document.getElementById('articles-content');
+
+            var id_category = document.getElementById("article-category-block").getAttribute('active');
+
+                counter++;
+                $.ajax({
+                    type:'POST',
+                    url:"{{ route('loadArticles') }}",
+                    data: {"_token": $('meta[name="csrf-token"]').attr('content'), "counter" : counter, "id_category" : id_category},
+                    success: function (response) {
+                        block.innerHTML = block.innerHTML + response;
+                    }
+                });
+        });
+    </script>
 @endsection
 

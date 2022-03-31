@@ -61,7 +61,7 @@ class ForumController extends Controller
         $topic->save();
         $reply->save();
 
-        echo view('forum/reply')->with(['reply' => $reply]);
+        echo view('ajax/forum/reply')->with(['reply' => $reply]);
     }
 
     public function sortTopics(Request $rec){
@@ -85,7 +85,7 @@ class ForumController extends Controller
             }
         }
 
-        echo view('forum/topics')->with(['topics' => $topics]);
+        echo view('ajax/forum/topics')->with(['topics' => $topics]);
     }
 
     public function searchTopics(Request $rec){
@@ -124,13 +124,54 @@ class ForumController extends Controller
             }
         }
 
-        echo view('forum/topics')->with(['topics' => $topics]);
+        echo view('ajax/forum/topics')->with(['topics' => $topics]);
     }
 
     public function searchReply(Request $rec){
 
-        echo view('forum/replies')->with(['replies' => (DB::table('replies')
+        echo view('ajax/forum/replies')->with(['replies' => (DB::table('replies')
             ->where('message', 'LIKE',"%$rec->search%")->get())
             ->where('id_topic', $rec->id_topic)]);
+    }
+
+    public function addCategory(Request $rec){
+        $category = new ForumCategory();
+        $category->name = $rec->input('name');
+
+        $category->save();
+
+        return redirect()->route('admin-forum')->with('success', 'Нову категорію додано!');
+    }
+
+    public function editCategory(Request $rec){
+        $category = ForumCategory::find($rec->input('id'));
+        $category->name = $rec->input('name');
+
+        $category->save();
+
+        return redirect()->route('admin-forum')->with('success', 'Категорію відредаговано!');
+    }
+
+    public function deleteCategory(Request $rec){
+        ForumCategory::find($rec->input('id'))->delete();
+
+        return redirect()->route('admin-forum')->with('success', 'Категорію видалено!');
+    }
+
+    public function editTopic(Request $rec){
+        $topic = Topic::find($rec->input('id'));
+        $topic->id_category = $rec->input('id_category');
+        $topic->topic = $rec->input('topic');
+        $topic->message = $rec->input('message');
+
+        $topic->save();
+
+        return redirect()->route('admin-forum')->with('success', 'Тему відредаговано!');
+    }
+
+    public function deleteTopic(Request $rec){
+        Topic::find($rec->input('id'))->delete();
+
+        return redirect()->route('admin-forum')->with('success', 'Тему видалено!');
     }
 }

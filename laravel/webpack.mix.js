@@ -16,3 +16,4 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
     require('tailwindcss'),
     require('autoprefixer'),
 ]).postCss('resources/css/forum.css', 'public/css');
+mix.js('resources/js/admin.js', 'public/js');

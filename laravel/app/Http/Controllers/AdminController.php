@@ -23,14 +23,23 @@ class AdminController extends Controller
         $article = new Article();
         $category = new Category();
         $link = new Link();
+        $articles = Article::where('id_category', 1)->orderBy('id', 'DESC')->paginate(10);
 
-        return view("admin/admin-articles", ['articles' => $article->all(), 'categories' => $category->all(), 'links' => $link->all()]);
+        return view("admin/admin-articles", ['articles' => $articles, 'categories' => $category->all(), 'links' => $link->all(), 'active' => Category::find(1)]);
+    }
+    public function filterArticles($id){
+        $article = new Article();
+        $category = new Category();
+        $link = new Link();
+        $articles = Article::where('id_category', $id)->orderBy('id', 'DESC')->paginate(10);
+
+        return view("admin/admin-articles", ['articles' => $articles, 'categories' => $category->all(), 'links' => $link->all(), 'active' => Category::find($id)]);
     }
     public function showUsersPanel(){
         $link = new Link();
-        $user = new User();
+        $user = User::orderBy('id', 'DESC')->paginate(10);
 
-        return view("admin/admin-users", [ 'links' => $link->all(), 'users' => $user->all()]);
+        return view("admin/admin-users", [ 'links' => $link->all(), 'users' => $user]);
     }
     public function showForumPanel(){
         $link = new Link();
@@ -73,5 +82,12 @@ class AdminController extends Controller
         Link::find($rec->input('id'))->delete();
 
         return redirect()->route('admin-home')->with('success', 'Посилання видалено!');
+    }
+    public function loadAdminArticles(Request $rec){
+        $article = new Article();
+
+        $articles = $article->all()->where('id_category', $rec->id_category)->sortByDesc('id')->skip(10 * $rec->counter)->take(10);
+
+        return view('ajax/article/admin-articles', ['articles' => $articles]);
     }
 }

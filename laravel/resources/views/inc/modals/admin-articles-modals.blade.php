@@ -26,6 +26,10 @@
                         <span class="input-group-text">Відео</span>
                         <input type="text" class="form-control" name="video">
                     </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Джерело</span>
+                        <input type="text" class="form-control" name="source">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
@@ -65,6 +69,10 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Відео</span>
                         <input id="editVideoInput" type="text" class="form-control" name="video">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Джерело</span>
+                        <input id="editSourceInput" type="text" class="form-control" name="source">
                     </div>
                 </div>
                 <div class="modal-footer">

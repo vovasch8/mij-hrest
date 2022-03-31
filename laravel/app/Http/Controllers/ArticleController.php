@@ -22,6 +22,7 @@ class ArticleController extends Controller
         $article->content = $rec->input('add-content');
         $article->image = $rec->input('image');
         $article->video = $rec->input('video');
+        $article->source = $rec->input('source');
         $article->id_category = $rec->input('id_category');
 
         $article->save();
@@ -34,6 +35,7 @@ class ArticleController extends Controller
         $article->content = $rec->input('content');
         $article->image = $rec->input('image');
         $article->video = $rec->input('video');
+        $article->source = $rec->input('source');
         $article->id_category = $rec->input('id_category');
 
         $article->save();

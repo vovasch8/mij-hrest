@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'SiteController@showSite')->name('home');
 Route::get('/article/{id}', 'SiteController@showArticle')->name('article');
 Route::get('/category-articles/{id}', 'SiteController@filterArticles')->name('category-articles');
+Route::get('/admin-category-articles/{id}', 'AdminController@filterArticles')->name('admin-category-articles');
+Route::post('/loadArticles', 'SiteController@loadArticles')->name('loadArticles');
+Route::post('/loadAdminArticles', 'AdminController@loadAdminArticles')->name('loadAdminArticles');
 Route::get('/calendar', 'SiteController@showCalendar')->name('calendar');
 Route::get('/dictionary', 'SiteController@showDictionary')->name('dictionary');
 
@@ -29,6 +32,13 @@ Route::post('/forum/sendMessage', 'ForumController@sendMessage')->name('sendMess
 Route::post('/forum/sortTopics', 'ForumController@sortTopics')->name('sortTopics');
 Route::post('/forum/searchTopics', 'ForumController@searchTopics')->name('searchTopics');
 Route::post('/forum/searchReply', 'ForumController@searchReply')->name('searchReply');
+
+Route::get('/forum/forumAddCategory', 'ForumController@addCategory')->name('forumAddCategory');
+Route::get('/forum/forumEditCategory', 'ForumController@editCategory')->name('forumEditCategory');
+Route::get('/forum/forumDeleteCategory', 'ForumController@deleteCategory')->name('forumDeleteCategory');
+
+Route::get('/forum/editTopic', 'ForumController@editTopic')->name('editTopic');
+Route::get('/forum/deleteTopic', 'ForumController@deleteTopic')->name('deleteTopic');
 
 
 Route::get('/profile', 'CabinetController@showProfile')->middleware(['auth'])->name('profile');

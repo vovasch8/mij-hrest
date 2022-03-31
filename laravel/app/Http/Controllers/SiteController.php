@@ -16,22 +16,46 @@ class SiteController extends Controller
         $link = new Link();
         $category = new Category();
 
-        return view('home', ['articles' => $article->all()->take(10), 'links' => $link->all(), 'category' => $category]);
+        return view('home', ['articles' => $article->all()->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category]);
     }
     public function showArticle($id){
-        $article = new Article();
+        $article = Article::find($id);
         $link = new Link();
         $category = new Category();
 
-        return view('article', ['article' => $article->find($id), 'links' => $link->all(), 'category' => $category]);
+        $article->views++;
+        $article->save();
+
+        return view('article', ['article' => $article, 'links' => $link->all(), 'category' => $category]);
     }
     public function filterArticles($id){
         $article = new Article();
         $link = new Link();
         $category = new Category();
 
-        return view('home', ['articles' => $article->all()->where('id_category', $id), 'links' => $link->all(), 'category' => $category]);
+        return view('home', ['articles' => $article->all()->where('id_category', $id)->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category, 'active' => $id]);
     }
+
+    public function loadArticles(Request $rec){
+        $article = new Article();
+        $link = new Link();
+        $category = new Category();
+
+        $articles = [];
+
+        if($rec->id_category == 0){
+            if(Article::all()->count() > (10 * $rec->counter )){
+                $articles = $article->all()->sortByDesc('id')->skip(10 * $rec->counter)->take(10);
+            }
+            return view('ajax/article/articles', ['articles' => $articles, 'category' => $category]);
+        }else {
+            if(Article::all()->count() > (10*$rec->counter)){
+                $articles = $article->all()->where('id_category', $rec->id_category)->sortByDesc('id')->skip(10 * $rec->counter)->take(10);
+            }
+            return view('ajax/article/articles', ['articles' => $articles, 'category' => $category]);
+        }
+    }
+
     public function showCalendar(){
         $link = new Link();
         return view('calendar', ['links' => $link->all()]);

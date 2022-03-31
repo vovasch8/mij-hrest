@@ -60,6 +60,10 @@
 .article-content, .art-text{
     text-align: justify;
 }
+.article-video iframe{
+    width: 100%;
+    height: 450px;
+}
 .category-block span:hover{
     cursor: pointer;
     background: #1a202c;

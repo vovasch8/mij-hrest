@@ -5628,31 +5628,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start(); //Site scripts
-
-$('.avatars img').click(function () {
-  $('.avatars img').each(function () {
-    $(this).removeClass("active-avatar");
-  });
-  $(this).addClass("active-avatar");
-  $('#avatar').val(this.getAttribute('numberAvatar'));
-}); //End site scripts
-
-/***/ }),
-
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -22896,32 +22871,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/forum.css":
-/*!*********************************!*\
-  !*** ./resources/css/forum.css ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -23145,42 +23094,7 @@ process.umask = function() { return 0; };
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -23230,70 +23144,133 @@ process.umask = function() { return 0; };
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/forum": 0,
-/******/ 			"css/app": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/forum","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/forum","css/app"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/forum","css/app"], () => (__webpack_require__("./resources/css/forum.css")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*******************************!*\
+  !*** ./resources/js/admin.js ***!
+  \*******************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start(); //Admin panel scripts
+//admin-home page
+
+var editLinkBtns = document.querySelectorAll('.btn-edit-link');
+var deleteLinkBtns = document.querySelectorAll('.btn-delete-link');
+var addLinkBtns = document.querySelectorAll('.btn-add-link');
+var addSaveBlockBtn = document.getElementById('saveBlock');
+addLinkBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    alert(this.getAttribute('id_block'));
+    document.getElementById('addLinkIdBlock').setAttribute('value', this.getAttribute('id_block'));
+  });
+});
+editLinkBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editLinkId').setAttribute('value', this.getAttribute('id_link'));
+    document.getElementById('editLinkIdBlock').setAttribute('value', this.getAttribute('id_block'));
+    var name = this.parentNode.parentNode.querySelector('.td-name').textContent;
+    var link = this.parentNode.parentNode.querySelector('.td-link').textContent;
+    var sort = this.parentNode.parentNode.querySelector('.td-sort').textContent;
+    document.getElementById('editNameInput').value = name;
+    document.getElementById('editLinkInput').value = link;
+    document.getElementById('editSortInput').value = sort;
+  });
+});
+deleteLinkBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteLinkId').setAttribute('value', this.getAttribute('id_link'));
+  });
+});
+addSaveBlockBtn.addEventListener('click', function () {
+  document.getElementById('addLinkSaveIdBlock').setAttribute('value', '3');
+}); //admin-articles page
+
+var editArticleBtns = document.querySelectorAll('.btn-edit-article');
+var deleteArticleBtns = document.querySelectorAll('.btn-delete-article');
+var addArticleBtns = document.querySelectorAll('.btn-add-article');
+addArticleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('addArticleIdCategory').setAttribute('value', this.getAttribute('id_category'));
+  });
+});
+editArticleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editArticleId').setAttribute('value', this.getAttribute('id_article'));
+    document.getElementById('editArticleIdCategory').setAttribute('value', this.getAttribute('id_category'));
+    var subject = this.parentNode.parentNode.querySelector('.td-subject').textContent;
+    var content = this.parentNode.parentNode.querySelector('.td-content').textContent;
+    var image = this.parentNode.parentNode.querySelector('.td-image').textContent;
+    var video = this.parentNode.parentNode.querySelector('.td-video').textContent;
+    var source = this.parentNode.parentNode.querySelector('.td-source').textContent;
+    document.getElementById('editSubjectInput').value = subject;
+    var iframe = document.getElementsByTagName("iframe")[1];
+    var el = iframe.contentWindow.document.getElementsByTagName("body")[0];
+    el.innerHTML = content;
+    document.getElementById('editImageInput').value = image;
+    document.getElementById('editVideoInput').value = video;
+    document.getElementById('editSourceInput').value = source;
+  });
+});
+deleteArticleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteArticleId').setAttribute('value', this.getAttribute('id_article'));
+  });
+}); //admin-users page
+
+var editRoleBtns = document.querySelectorAll('.btn-edit-role');
+var deleteUserBtns = document.querySelectorAll('.btn-delete-user');
+editRoleBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editRoleId').setAttribute('value', this.getAttribute('id_user'));
+    var role = this.parentNode.parentNode.querySelector('.td-role').textContent;
+    document.getElementById('editRoleInput').value = role;
+  });
+});
+deleteUserBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteUserId').setAttribute('value', this.getAttribute('id_user'));
+  });
+}); //Admin forum page
+
+var editForumCategoryBtns = document.querySelectorAll('.btn-edit-forum-category');
+var deleteForumCategoryBtns = document.querySelectorAll('.btn-delete-forum-category');
+editForumCategoryBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editCategoryId').setAttribute('value', this.getAttribute('id_category'));
+    var name = this.parentNode.parentNode.querySelector('.td-name').textContent;
+    document.getElementById('editNameInput').value = name;
+  });
+});
+deleteForumCategoryBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteCategoryId').setAttribute('value', this.getAttribute('id_category'));
+  });
+});
+var editTopicBtns = document.querySelectorAll('.btn-edit-topic');
+var deleteTopicBtns = document.querySelectorAll('.btn-delete-topic');
+editTopicBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('editTopicId').setAttribute('value', this.getAttribute('id_topic'));
+    document.getElementById('editTopicSelect').value = this.getAttribute('id_category');
+    var topic = this.parentNode.parentNode.querySelector('.td-topic').textContent;
+    document.getElementById('editTopicInput').value = topic;
+    var message = this.parentNode.parentNode.querySelector('.td-message').textContent;
+    document.getElementById('editMessageInput').value = message;
+  });
+});
+deleteTopicBtns.forEach(function (btn) {
+  btn.addEventListener('click', function handleClick(event) {
+    document.getElementById('deleteTopicId').setAttribute('value', this.getAttribute('id_topic'));
+  });
+}); //End admin panel scripts
+})();
+
 /******/ })()
 ;
