@@ -34,6 +34,15 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'email.required' => 'Поле email є обов\'язковим',
+            'email.email' => 'Поле email має відповідати правилам вводу email',
+            'password.required' => 'Поле пароль є обов\'язковим',
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *
