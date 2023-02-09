@@ -23167,7 +23167,6 @@ var addLinkBtns = document.querySelectorAll('.btn-add-link');
 var addSaveBlockBtn = document.getElementById('saveBlock');
 addLinkBtns.forEach(function (btn) {
   btn.addEventListener('click', function handleClick(event) {
-    alert(this.getAttribute('id_block'));
     document.getElementById('addLinkIdBlock').setAttribute('value', this.getAttribute('id_block'));
   });
 });
@@ -23210,9 +23209,7 @@ editArticleBtns.forEach(function (btn) {
     var video = this.parentNode.parentNode.querySelector('.td-video').textContent;
     var source = this.parentNode.parentNode.querySelector('.td-source').textContent;
     document.getElementById('editSubjectInput').value = subject;
-    var iframe = document.getElementsByTagName("iframe")[1];
-    var el = iframe.contentWindow.document.getElementsByTagName("body")[0];
-    el.innerHTML = content;
+    document.getElementsByClassName('note-editable')[1].innerHTML = content;
     document.getElementById('editImageInput').value = image;
     document.getElementById('editVideoInput').value = video;
     document.getElementById('editSourceInput').value = source;

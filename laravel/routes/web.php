@@ -54,8 +54,8 @@ Route::get('/admin-home/deleteLink', 'AdminController@deleteLink')->middleware([
 Route::get('/admin-articles', 'AdminController@showArticlesPanel')->middleware(['auth'])->name('admin-articles');
 
 Route::get('/admin-articles/addCategory', 'ArticleController@addCategory')->middleware(['auth'])->name('addCategory');
-Route::get('/admin-articles/addArticle', 'ArticleController@addArticle')->middleware(['auth'])->name('addArticle');
-Route::get('/admin-articles/editArticle', 'ArticleController@editArticle')->middleware(['auth'])->name('editArticle');
+Route::post('/admin-articles/addArticle', 'ArticleController@addArticle')->middleware(['auth'])->name('addArticle');
+Route::post('/admin-articles/editArticle', 'ArticleController@editArticle')->middleware(['auth'])->name('editArticle');
 Route::get('/admin-articles/deleteArticle', 'ArticleController@deleteArticle')->middleware(['auth'])->name('deleteArticle');
 Route::get('/admin-category-articles/{id}', 'AdminController@filterArticles')->name('admin-category-articles');
 Route::post('/loadAdminArticles', 'AdminController@loadAdminArticles')->name('loadAdminArticles');

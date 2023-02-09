@@ -12,14 +12,14 @@
                     <h6 class="text-center">Виберіть аватар</h6>
                     <div class="avatars text-center mb-3">
                         <input id="avatar" type="hidden" name="avatar" value="{{Auth::user()->avatar}}">
-                        <img numberAvatar="avatar1.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar1.png'}}" alt="Avatar">
-                        <img numberAvatar="avatar2.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar2.png'}}" alt="Avatar">
-                        <img numberAvatar="avatar3.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar3.png'}}" alt="Avatar">
-                        <img numberAvatar="avatar4.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar4.png'}}" alt="Avatar">
-                        <img numberAvatar="avatar5.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar5.png'}}" alt="Avatar">
-                        <img numberAvatar="avatar6.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar6.png'}}" alt="Avatar">
-                        <img numberAvatar="avatar7.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar7.png'}}" alt="Avatar">
-                        <img numberAvatar="avatar8.png" class="img-fluid img-thumbnail" src="{{asset('storage').'/users/avatar8.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar1.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar1.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar2.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar2.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar3.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar3.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar4.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar4.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar5.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar5.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar6.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar6.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar7.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar7.png'}}" alt="Avatar">
+                        <img numberAvatar="avatar8.png" class="img-fluid img-thumbnail" src="{{'https://mij-hrest.com/storage/app/public'.'/users/avatar8.png'}}" alt="Avatar">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Повне Ім'я</span>

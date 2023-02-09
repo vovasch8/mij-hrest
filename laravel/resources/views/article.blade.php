@@ -41,7 +41,7 @@
                         <a class="facebook"></a>
                         <a class="linkedin"></a>
                         <!-- FB App ID is required for the Messenger button to function -->
-                        <a class="messenger" data-fb-app-id="0123456789012345"></a>
+                        <a class="messenger" data-fb-app-id="5384706271591861"></a>
                         <a class="odnoklassniki"></a>
                         <a class="pinterest"></a>
                         <a class="telegram"></a>

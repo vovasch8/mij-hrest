@@ -16,7 +16,6 @@ const addSaveBlockBtn = document.getElementById('saveBlock');
 
 addLinkBtns.forEach(btn => {
     btn.addEventListener('click', function handleClick(event) {
-        alert(this.getAttribute('id_block'));
         document.getElementById('addLinkIdBlock').setAttribute('value', this.getAttribute('id_block'));
     });
 });
@@ -62,9 +61,7 @@ editArticleBtns.forEach(btn => {
         let video = this.parentNode.parentNode.querySelector('.td-video').textContent;
         let source = this.parentNode.parentNode.querySelector('.td-source').textContent;
         document.getElementById('editSubjectInput').value = subject;
-        let iframe = document.getElementsByTagName("iframe")[1];
-        var el = iframe.contentWindow.document.getElementsByTagName("body")[0];
-        el.innerHTML = content;
+        document.getElementsByClassName('note-editable')[1].innerHTML = content;
         document.getElementById('editImageInput').value = image;
         document.getElementById('editVideoInput').value = video;
         document.getElementById('editSourceInput').value = source;
