@@ -19,6 +19,8 @@ Route::get('/category-articles/{id}', 'SiteController@filterArticles')->name('ca
 Route::post('/loadArticles', 'SiteController@loadArticles')->name('loadArticles');
 Route::get('/calendar', 'SiteController@showCalendar')->name('calendar');
 Route::get('/dictionary', 'SiteController@showDictionary')->name('dictionary');
+Route::get('/albums', 'SiteController@showAlbums')->name('albums');
+Route::get('/main', 'SiteController@showMain')->name('main');
 
 Route::get('/forum', 'SiteController@showForum')->name('forum');
 Route::get('/forum/category/{id}', 'ForumController@showForumCategory')->name('filter-topics');

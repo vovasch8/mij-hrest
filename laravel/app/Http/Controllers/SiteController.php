@@ -35,7 +35,6 @@ class SiteController extends Controller
 
         return view('home', ['articles' => $article->all()->where('id_category', $id)->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category, 'active' => $id]);
     }
-
     public function loadArticles(Request $rec){
         $article = new Article();
         $link = new Link();
@@ -55,7 +54,6 @@ class SiteController extends Controller
             return view('ajax/article/articles', ['articles' => $articles, 'category' => $category]);
         }
     }
-
     public function showCalendar(){
         $link = new Link();
         return view('calendar', ['links' => $link->all()]);
@@ -66,9 +64,16 @@ class SiteController extends Controller
         $topic = new Topic();
         return view('forum', ['categories' => $category->all(), 'topics' => $topic->all()->sortByDesc('id'), 'active' => 0]);
     }
-
     public function showDictionary(){
         $link = new Link();
         return view('dictionary', ['links' => $link->all()]);
+    }
+    public function showAlbums(){
+        $link = new Link();
+        return view('albums', ['links' => $link->all()]);
+    }
+    public function showMain(){
+        $link = new Link();
+        return view('main', ['links' => $link->all()]);
     }
 }
