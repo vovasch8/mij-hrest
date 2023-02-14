@@ -157,6 +157,32 @@
     text-decoration: none;
     color: white;
 }
+.dz-error-mark {
+    opacity: 0!important;
+}
+.dz-success-mark {
+    opacity: 1!important;
+}
+.dz-progress {
+    opacity: 0!important;
+}
+.dz-remove {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    background: black;
+    border-radius: 10px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+.dz-remove:hover {
+    text-decoration: none!important;
+    transform: scale(1.05);
+    color: white;
+}
+#addDropAlbum{
+    cursor: pointer;
+}
 @media (max-width: 992px) {
     .article-image{
         width: 100%;

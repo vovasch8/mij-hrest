@@ -9,7 +9,10 @@ use App\Models\ForumCategory;
 use App\Models\Link;
 use App\Models\Topic;
 use App\Models\User;
+use App\Models\Album;
+use App\Models\AlbumImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -47,6 +50,25 @@ class AdminController extends Controller
         $topic = new Topic();
 
         return view("admin/admin-forum", [ 'links' => $link->all(), 'categories' => $category->all(), 'topics' => $topic]);
+    }
+    public function showAlbumsPanel(){
+        $link = new Link();
+        return view("admin/admin-albums", ['links' => $link->all()]);
+    }
+    public function addAlbum(Request $rec){
+        $album = new Album();
+        $album->name = $rec->title;
+        $album->save();
+
+        foreach ($rec->images as $key => $image) {
+            $imageAlbum = new AlbumImage();
+            $imageName = time() . $key . '.' . $image->extension();
+            Storage::disk('public')->putFileAs('/albums', $image, $imageName);
+            $imageAlbum->id_album = $album->id;
+            $imageAlbum->name = $imageName;
+            $imageAlbum->save();
+        }
+        return true;
     }
     public function addBlock(Request $rec){
         $block = new Block();

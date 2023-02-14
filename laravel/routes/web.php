@@ -69,4 +69,7 @@ Route::get('/admin-users/editRole', 'UserController@editRole')->middleware(['aut
 
 Route::get('/admin-forum', 'AdminController@showForumPanel')->middleware(['auth'])->name('admin-forum');
 
+Route::get('/admin-albums', 'AdminController@showAlbumsPanel')->middleware(['auth'])->name('admin-albums');
+Route::post('/admin-albums/addAlbum', 'AdminController@addAlbum')->middleware(['auth'])->name('addAlbum');
+
 require __DIR__.'/auth.php';

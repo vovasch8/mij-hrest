@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AlbumImage;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\ForumCategory;
 use App\Models\Link;
 use App\Models\Topic;
+use App\Models\Album;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -70,7 +72,19 @@ class SiteController extends Controller
     }
     public function showAlbums(){
         $link = new Link();
-        return view('albums', ['links' => $link->all()]);
+        $albumModel = new Album();
+        $albumImageModel = new AlbumImage();
+        $albumsEntities = $albumModel->all();
+        $albums = [];
+        foreach ($albumsEntities as $albumEntity){
+            $images = AlbumImage::where('id_album', $albumEntity->id)->get()->toArray();
+            $albums[] = [
+                'name' => $albumEntity->name,
+                'images' => array_column($images, 'name')
+            ];
+        }
+
+        return view('albums', ['links' => $link->all(), 'albums' => $albums]);
     }
     public function showMain(){
         $link = new Link();
