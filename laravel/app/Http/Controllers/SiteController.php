@@ -13,14 +13,15 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-    public function showSite(){
+    public function showArticles() {
         $article = new Article();
         $link = new Link();
         $category = new Category();
 
         return view('home', ['articles' => $article->all()->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category]);
     }
-    public function showArticle($id){
+
+    public function showArticle($id) {
         $article = Article::find($id);
         $link = new Link();
         $category = new Category();
@@ -30,53 +31,60 @@ class SiteController extends Controller
 
         return view('article', ['article' => $article, 'links' => $link->all(), 'category' => $category]);
     }
-    public function filterArticles($id){
+
+    public function filterArticles($id) {
         $article = new Article();
         $link = new Link();
         $category = new Category();
 
         return view('home', ['articles' => $article->all()->where('id_category', $id)->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category, 'active' => $id]);
     }
-    public function loadArticles(Request $rec){
+
+    public function loadArticles(Request $req) {
         $article = new Article();
-        $link = new Link();
         $category = new Category();
 
         $articles = [];
 
-        if($rec->id_category == 0){
-            if(Article::all()->count() > (10 * $rec->counter )){
-                $articles = $article->all()->sortByDesc('id')->skip(10 * $rec->counter)->take(10);
+        if ($req->id_category == 0) {
+            if (Article::all()->count() > (10 * $req->counter )) {
+                $articles = $article->all()->sortByDesc('id')->skip(10 * $req->counter)->take(10);
             }
+
             return view('ajax/article/articles', ['articles' => $articles, 'category' => $category]);
-        }else {
-            if(Article::all()->count() > (10*$rec->counter)){
-                $articles = $article->all()->where('id_category', $rec->id_category)->sortByDesc('id')->skip(10 * $rec->counter)->take(10);
+        } else {
+            if (Article::all()->count() > (10*$req->counter)) {
+                $articles = $article->all()->where('id_category', $req->id_category)->sortByDesc('id')->skip(10 * $req->counter)->take(10);
             }
+
             return view('ajax/article/articles', ['articles' => $articles, 'category' => $category]);
         }
     }
-    public function showCalendar(){
+
+    public function showCalendar() {
         $link = new Link();
+
         return view('calendar', ['links' => $link->all()]);
     }
-    public function showForum(){
-        $link = new Link();
+
+    public function showForum() {
         $category = new ForumCategory();
         $topic = new Topic();
+
         return view('forum', ['categories' => $category->all(), 'topics' => $topic->all()->sortByDesc('id'), 'active' => 0]);
     }
-    public function showDictionary(){
+
+    public function showDictionary() {
         $link = new Link();
         return view('dictionary', ['links' => $link->all()]);
     }
-    public function showAlbums(){
+
+    public function showAlbums() {
         $link = new Link();
         $albumModel = new Album();
-        $albumImageModel = new AlbumImage();
         $albumsEntities = $albumModel->all();
         $albums = [];
-        foreach ($albumsEntities as $albumEntity){
+        foreach ($albumsEntities as $albumEntity) {
             $images = AlbumImage::where('id_album', $albumEntity->id)->get()->toArray();
             $albums[] = [
                 'name' => $albumEntity->name,
@@ -86,8 +94,10 @@ class SiteController extends Controller
 
         return view('albums', ['links' => $link->all(), 'albums' => $albums]);
     }
-    public function showMain(){
+
+    public function showMain() {
         $link = new Link();
+
         return view('main', ['links' => $link->all()]);
     }
 }

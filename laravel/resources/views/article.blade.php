@@ -24,7 +24,7 @@
                         <span class="text-secondary">Переглядів: </span><span> {{$article->views}}</span>
                         <div class="float-end">
                             <span class="text-secondary">Джерело: </span>
-                            <a class=" link-dark" @if($article->source){ href="{{$article->source}}" }@else href="{{route('home')}}" @endif>Посилання</a>
+                            <a class=" link-dark" @if($article->source){ href="{{$article->source}}" }@else href="{{route('articles')}}" @endif>Посилання</a>
                         </div>
                         </div>
                 </div>

@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'SiteController@showSite')->name('home');
+Route::get('/', 'SiteController@showMain')->name('main');
+Route::get('/articles', 'SiteController@showArticles')->name('articles');
 Route::get('/article/{id}', 'SiteController@showArticle')->name('article');
 Route::get('/category-articles/{id}', 'SiteController@filterArticles')->name('category-articles');
 Route::post('/loadArticles', 'SiteController@loadArticles')->name('loadArticles');
 Route::get('/calendar', 'SiteController@showCalendar')->name('calendar');
 Route::get('/dictionary', 'SiteController@showDictionary')->name('dictionary');
 Route::get('/albums', 'SiteController@showAlbums')->name('albums');
-Route::get('/main', 'SiteController@showMain')->name('main');
 
 Route::get('/forum', 'SiteController@showForum')->name('forum');
 Route::get('/forum/category/{id}', 'ForumController@showForumCategory')->name('filter-topics');

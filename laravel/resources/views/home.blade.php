@@ -11,7 +11,7 @@
                 </h3>
                 <div class="row mb-2">
                         <div id="article-category-block" @if(isset($active)) active="{{$active}}" @else active="0" @endif class="mb-3 category-block">
-                            <a href="{{route('home')}}"><span class="badge rounded-pill bg-secondary btn-category">Всі</span></a>
+                            <a href="{{route('articles')}}"><span class="badge rounded-pill bg-secondary btn-category">Всі</span></a>
                             @foreach($category->all() as $c)
                                 <a href="{{route('category-articles', $c->id)}}"><span class="badge rounded-pill bg-secondary btn-category">{{$c->name}}</span></a>
                             @endforeach

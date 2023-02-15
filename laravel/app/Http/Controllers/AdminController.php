@@ -16,99 +16,111 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
-    public function showAdminPanel(){
+    public function showAdminPanel() {
         $block = new Block();
         $link = new Link();
 
         return view("admin/admin-home", ['blocks' => $block->all(), 'links' => $link->all()]);
     }
-    public function showArticlesPanel(){
-        $article = new Article();
+
+    public function showArticlesPanel() {
         $category = new Category();
         $link = new Link();
         $articles = Article::where('id_category', 1)->orderBy('id', 'DESC')->paginate(10);
 
         return view("admin/admin-articles", ['articles' => $articles, 'categories' => $category->all(), 'links' => $link->all(), 'active' => Category::find(1)]);
     }
-    public function filterArticles($id){
-        $article = new Article();
+
+    public function filterArticles($id) {
         $category = new Category();
         $link = new Link();
         $articles = Article::where('id_category', $id)->orderBy('id', 'DESC')->paginate(10);
 
         return view("admin/admin-articles", ['articles' => $articles, 'categories' => $category->all(), 'links' => $link->all(), 'active' => Category::find($id)]);
     }
-    public function showUsersPanel(){
+
+    public function showUsersPanel() {
         $link = new Link();
         $user = User::orderBy('id', 'DESC')->paginate(10);
 
         return view("admin/admin-users", [ 'links' => $link->all(), 'users' => $user]);
     }
-    public function showForumPanel(){
+
+    public function showForumPanel() {
         $link = new Link();
         $category = new ForumCategory();
         $topic = new Topic();
 
         return view("admin/admin-forum", [ 'links' => $link->all(), 'categories' => $category->all(), 'topics' => $topic]);
     }
-    public function showAlbumsPanel(){
+
+    public function showAlbumsPanel() {
         $link = new Link();
+
         return view("admin/admin-albums", ['links' => $link->all()]);
     }
-    public function addAlbum(Request $rec){
+
+    public function addAlbum(Request $req) {
         $album = new Album();
-        $album->name = $rec->title;
+        $album->name = $req->title;
         $album->save();
 
-        foreach ($rec->images as $key => $image) {
+        foreach ($req->images as $key => $image) {
             $imageAlbum = new AlbumImage();
             $imageName = time() . $key . '.' . $image->extension();
             Storage::disk('public')->putFileAs('/albums', $image, $imageName);
             $imageAlbum->id_album = $album->id;
             $imageAlbum->name = $imageName;
+
             $imageAlbum->save();
         }
+
         return true;
     }
-    public function addBlock(Request $rec){
+
+    public function addBlock(Request $req) {
         $block = new Block();
-        $block->name = $rec->input('name');
+        $block->name = $req->input('name');
 
         $block->save();
 
         return redirect()->route('admin-home')->with('success', 'Новий блок додано!');
     }
-    public function addLink(Request $rec){
+
+    public function addLink(Request $req) {
         $link = new Link();
-        $link->name = $rec->input('name');
-        $link->link = $rec->input('link');
-        $link->sort = $rec->input('sort');
-        $link->id_block = $rec->input('id_block');
+        $link->name = $req->input('name');
+        $link->link = $req->input('link');
+        $link->sort = $req->input('sort');
+        $link->id_block = $req->input('id_block');
 
         $link->save();
 
         return redirect()->route('admin-home')->with('success', 'Нове посилання додано!');
     }
-    public function editLink(Request $rec){
-        $link = Link::find($rec->input('id'));
-        $link->name = $rec->input('name');
-        $link->link = $rec->input('link');
-        $link->sort = $rec->input('sort');
-        $link->id_block = $rec->input('id_block');
+
+    public function editLink(Request $req) {
+        $link = Link::find($req->input('id'));
+        $link->name = $req->input('name');
+        $link->link = $req->input('link');
+        $link->sort = $req->input('sort');
+        $link->id_block = $req->input('id_block');
 
         $link->save();
 
         return redirect()->route('admin-home')->with('success', 'Посилання оновлено!');
     }
-    public function deleteLink(Request $rec){
-        Link::find($rec->input('id'))->delete();
+
+    public function deleteLink(Request $req) {
+        Link::find($req->input('id'))->delete();
 
         return redirect()->route('admin-home')->with('success', 'Посилання видалено!');
     }
-    public function loadAdminArticles(Request $rec){
+
+    public function loadAdminArticles(Request $req) {
         $article = new Article();
 
-        $articles = $article->all()->where('id_category', $rec->id_category)->sortByDesc('id')->skip(10 * $rec->counter)->take(10);
+        $articles = $article->all()->where('id_category', $req->id_category)->sortByDesc('id')->skip(10 * $req->counter)->take(10);
 
         return view('ajax/article/admin-articles', ['articles' => $articles]);
     }

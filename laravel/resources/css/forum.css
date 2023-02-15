@@ -1,9 +1,9 @@
-body{
+body {
     color: #1a202c;
     text-align: left;
     background-color: #e2e8f0;
 }
-.container{
+.container {
     max-width: 100%;
     padding: 0px;
 }
@@ -17,7 +17,7 @@ body{
         height: calc(100vh - 48px);
     }
 }
-.simplebar-content-wrapper{
+.simplebar-content-wrapper {
     overflow: hidden;
 }
 .inner-main,
@@ -144,43 +144,43 @@ body{
     min-height: 1px;
     padding: 1rem;
 }
-header, footer, .mb-4, .my-4{
+header, footer, .mb-4, .my-4 {
     margin: 0rem!important;
     background: white;
 }
 
-.alert{
+.alert {
     margin-bottom: 0px;
 }
 
-.write-message-block{
+.write-message-block {
     border-top: 1px solid #cbd5e0;
     background: #f8f8f8;
     padding-right: 40px!important;
     padding-left: 40px!important;
     display: inherit;
 }
-.message-login{
+.message-login {
     background: #f8f8f8;
     padding-top: 10px;
     padding-bottom: 10px;
     border-top: 1px solid #cbd5e0
 }
-.area-message{
+.area-message {
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
 }
-.img-message{
+.img-message {
     padding: 13px;
 }
-.img-message:hover{
+.img-message:hover {
     cursor: pointer;
 }
 
 /*Smiles*/
 
-.test-emoji{
+.test-emoji {
     position: absolute;
     text-align:center;
     font-size: 2rem;
@@ -189,7 +189,7 @@ header, footer, .mb-4, .my-4{
     top: 20%;
 }
 
-.intercom-composer-popover-input{
+.intercom-composer-popover-input {
     font-size-adjust: none;
     font-size: 100%;
     font-style: normal;

@@ -9,50 +9,53 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
-    public function addCategory(Request $rec){
+    public function addCategory(Request $req) {
         $category = new Category();
-        $category->name = $rec->input('name');
+        $category->name = $req->input('name');
 
         $category->save();
 
         return redirect()->route('admin-articles')->with('success', 'Нову категорію додано!');
     }
-    public function addArticle(Request $rec){
+
+    public function addArticle(Request $req) {
         $article = new Article();
-        $article->subject = $rec->input('subject');
-        $article->content = $rec->input('add-content');
-        $image = $rec->file('image');
+        $article->subject = $req->input('subject');
+        $article->content = $req->input('add-content');
+        $image = $req->file('image');
         $imageName = time() . '.' . $image->extension();
         Storage::disk('public')->putFileAs('/articles', $image, $imageName);
         $article->image = $imageName;
-        $article->source = $rec->input('source');
-        $article->id_category = $rec->input('id_category');
+        $article->source = $req->input('source');
+        $article->id_category = $req->input('id_category');
 
         $article->save();
 
         return redirect()->route('admin-articles')->with('success', 'Нову статтю додано!');
     }
-    public function editArticle(Request $rec){
-        $article = Article::find($rec->input('id'));
-        $article->subject = $rec->input('subject');
-        if($rec->input('content')) {
-            $article->content = $rec->input('content');
+
+    public function editArticle(Request $req) {
+        $article = Article::find($req->input('id'));
+        $article->subject = $req->input('subject');
+        if ($req->input('content')) {
+            $article->content = $req->input('content');
         }
-        if ($rec->hasFile('image')) {
-            $image = $rec->file('image');
+        if ($req->hasFile('image')) {
+            $image = $req->file('image');
             $imageName = time() . '.' . $image->extension();
             Storage::disk('public')->putFileAs('/articles', $image, $imageName);
             $article->image = $imageName;
         }
-        $article->source = $rec->input('source');
-        $article->id_category = $rec->input('id_category');
+        $article->source = $req->input('source');
+        $article->id_category = $req->input('id_category');
 
         $article->save();
 
         return redirect()->route('admin-articles')->with('success', 'Статтю оновлено!');
     }
-    public function deleteArticle(Request $rec){
-        Article::find($rec->input('id'))->delete();
+
+    public function deleteArticle(Request $req) {
+        Article::find($req->input('id'))->delete();
 
         return redirect()->route('admin-articles')->with('success', 'Статтю видалено!');
     }

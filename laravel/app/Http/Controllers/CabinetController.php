@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 
 class CabinetController extends Controller
 {
-    public function showProfile(){
+    public function showProfile() {
         $link = new Link();
 
         return view('cabinet/profile', ['links' => $link->all()]);
     }
-    public function showUser($id){
+
+    public function showUser($id) {
         $link = new Link();
         $user = User::find($id);
 

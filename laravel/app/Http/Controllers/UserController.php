@@ -8,28 +8,30 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function editRole(Request $rec){
-        $user = User::find($rec->input('id'));
-        $user->role = $rec->input('role');
+    public function editRole(Request $req) {
+        $user = User::find($req->input('id'));
+        $user->role = $req->input('role');
 
         $user->save();
 
         return redirect()->route('admin-users')->with('success', 'Роль змінено!');
     }
-    public function deleteUser(Request $rec){
-        User::find($rec->input('id'))->delete();
+
+    public function deleteUser(Request $req) {
+        User::find($req->input('id'))->delete();
 
         return redirect()->route('admin-users')->with('success', 'Користувача видалено!');
     }
-    public function editProfile($id, Request $rec){
+
+    public function editProfile($id, Request $req) {
         $user = User::find($id);
-        $user->avatar = $rec->input('avatar');
-        $user->name = $rec->input('name');
-        $user->phone = $rec->input('phone');
-        $user->location = $rec->input('location');
+        $user->avatar = $req->input('avatar');
+        $user->name = $req->input('name');
+        $user->phone = $req->input('phone');
+        $user->location = $req->input('location');
 
         $user->save();
+
         return redirect()->route('profile')->with('success', 'Дані оновлено!');
     }
-
 }
