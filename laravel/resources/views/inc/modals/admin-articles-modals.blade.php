@@ -1,6 +1,6 @@
 <!-- Add Article Modal -->
 <div class="modal fade " id="addArticleModal" tabindex="-1" aria-labelledby="addArticleModalLabel" aria-hidden="true">
-    <form action="{{route('addArticle')}}" method="post">
+    <form action="{{route('addArticle')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
@@ -19,12 +19,8 @@
                         <textarea id="addContentArea" type="text" class="form-control" name="add-content"></textarea>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Фото</span>
-                        <input type="text" class="form-control" name="image">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Відео</span>
-                        <input type="text" class="form-control" name="video">
+                        <span class="input-group-text">Фото статті</span>
+                        <input type="file" class="form-control" name="image">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Джерело</span>
@@ -43,7 +39,7 @@
 
 <!--Update Article Modal -->
 <div class="modal fade" id="editArticleModal" tabindex="-1" aria-labelledby="editArticleModalLabel" aria-hidden="true">
-    <form action="{{route('editArticle')}}" method="post">
+    <form action="{{route('editArticle')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
@@ -63,12 +59,11 @@
                         <textarea id="editContentArea" type="text" class="form-control" name="content"></textarea>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Фото</span>
-                        <input id="editImageInput" type="text" class="form-control" name="image">
+                        <span class="input-group-text">Старе фото: <span id="old-foto"></span></span>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Відео</span>
-                        <input id="editVideoInput" type="text" class="form-control" name="video">
+                        <span class="input-group-text">Нове фото</span>
+                        <input id="editImageInput" type="file" class="form-control" name="image">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Джерело</span>

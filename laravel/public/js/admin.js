@@ -23206,12 +23206,10 @@ editArticleBtns.forEach(function (btn) {
     var subject = this.parentNode.parentNode.querySelector('.td-subject').textContent;
     var content = this.parentNode.parentNode.querySelector('.td-content').textContent;
     var image = this.parentNode.parentNode.querySelector('.td-image').textContent;
-    var video = this.parentNode.parentNode.querySelector('.td-video').textContent;
     var source = this.parentNode.parentNode.querySelector('.td-source').textContent;
     document.getElementById('editSubjectInput').value = subject;
     document.getElementsByClassName('note-editable')[1].innerHTML = content;
-    document.getElementById('editImageInput').value = image;
-    document.getElementById('editVideoInput').value = video;
+    document.getElementById('old-foto').textContent = image;
     document.getElementById('editSourceInput').value = source;
   });
 });

@@ -1,6 +1,6 @@
 <style>.ra-button {padding: .3em .9em; border-radius: .25em; background: linear-gradient(#fff, #efefef); box-shadow: 0 1px .2em gray; display: inline-flex; align-items: center; cursor: pointer;} .ra-button img {height: 1em; margin: 0 .5em 0 0;} #ra-player{margin-bottom: 5px;}</style>
 
-<div id="ra-player" data-skin="https://assets.sitespeaker.link/embed/skins/default">
+<div id="ra-player" class="float-end" data-skin="https://assets.sitespeaker.link/embed/skins/default">
     <div class="ra-button" onclick="readAloud(document.getElementById('ra-audio'), document.getElementById('ra-player'))">
         <img src="https://assets.sitespeaker.link/embed/skins/default/play-icon.png"/>
         Слухати статтю

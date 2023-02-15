@@ -8,23 +8,16 @@
             <div class="col-md-8">
                 <div class="row mb-2">
                     <div>
-                        <img class="article-image" src="{{$article->image}}" alt="{{$category->getNameById($article->id_category)}}">
                         <div class="content">
                             <h4 class="text-center article-subject">{{$article->subject}}</h4>
                             <div class="mb-3">
-                                <p class="text-success d-inline text-end fw-bold">{{$category->getNameById($article->id_category)}}</p>
-                                <p class="text-secondary d-inline float-end">{{$article->updated_at->format('d.m H:i')}}</p>
-                                <br>
+                                <p class="text-success d-inline fw-bold">{{$category->getNameById($article->id_category)}} </p>
+                                <p class="text-secondary d-inline">{{$article->updated_at->format('d.m H:i')}}</p>
+                                @include('widgets.speach-reader')
                             </div>
                             <div class="article-content">
-                                @include('widgets.speach-reader')
                                 <?php echo $article->content; ?>
                             </div>
-                            @if($article->video)
-                                <div class="article-video">
-                                    <iframe src="{{$article->video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
-                                </div>
-                            @endif
                         </div>
                     </div>
                     <div>

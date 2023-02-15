@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -20,8 +21,10 @@ class ArticleController extends Controller
         $article = new Article();
         $article->subject = $rec->input('subject');
         $article->content = $rec->input('add-content');
-        $article->image = $rec->input('image');
-        $article->video = $rec->input('video');
+        $image = $rec->file('image');
+        $imageName = time() . '.' . $image->extension();
+        Storage::disk('public')->putFileAs('/articles', $image, $imageName);
+        $article->image = $imageName;
         $article->source = $rec->input('source');
         $article->id_category = $rec->input('id_category');
 
@@ -32,9 +35,15 @@ class ArticleController extends Controller
     public function editArticle(Request $rec){
         $article = Article::find($rec->input('id'));
         $article->subject = $rec->input('subject');
-        $article->content = $rec->input('content');
-        $article->image = $rec->input('image');
-        $article->video = $rec->input('video');
+        if($rec->input('content')) {
+            $article->content = $rec->input('content');
+        }
+        if ($rec->hasFile('image')) {
+            $image = $rec->file('image');
+            $imageName = time() . '.' . $image->extension();
+            Storage::disk('public')->putFileAs('/articles', $image, $imageName);
+            $article->image = $imageName;
+        }
         $article->source = $rec->input('source');
         $article->id_category = $rec->input('id_category');
 

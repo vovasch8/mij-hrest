@@ -40,7 +40,6 @@
                                     <th>Тема</th>
                                     <th>Контент</th>
                                     <th>Фото</th>
-                                    <th>Відео</th>
                                     <th>Перегляди</th>
                                     <th>Джерело</th>
                                     <th>Функції</th>
@@ -53,7 +52,6 @@
                                             <td class="td-subject">{{$article->subject}}</td>
                                             <td>{{mb_substr($article->content, 0, 20) . '...'}} <div class="visually-hidden td-content">{{$article->content}}</div></td>
                                             <td class="td-image">{{$article->image}}</td>
-                                            <td class="td-video">{{$article->video}}</td>
                                             <td class="td-views">{{$article->views}}</td>
                                             <td class="td-source">{{$article->source}}</td>
                                             <td class="text-center">

@@ -28,7 +28,7 @@
                                         <a href="{{route('article', $article->id)}}" class="stretched-link">Продовжити читати</a>
                                     </div>
                                     <div class="col-auto img-fluid art-div">
-                                        <img id="art-image" class="img-thumbnail" src="{{$article->image}}" alt="{{$category->getNameById($article->id_category)}}">
+                                        <img id="art-image" class="img-thumbnail" src="{{asset('storage') . '/articles/' . $article->image}}" alt="{{$category->getNameById($article->id_category)}}">
                                     </div>
                                 </div>
                             </div>

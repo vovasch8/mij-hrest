@@ -93,7 +93,7 @@
 .text-wrapper {
     position: absolute;
     color: white;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     padding: 30px;
     font-family: cursive;
 
@@ -182,6 +182,9 @@
 }
 #addDropAlbum{
     cursor: pointer;
+}
+#ra-player {
+    display: inline;
 }
 @media (max-width: 992px) {
     .article-image{
