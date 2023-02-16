@@ -12,7 +12,7 @@
         <link rel="shortcut icon" href="https://mij-hrest.com/storage/app/public/images/favicon.ico" type="image/x-icon">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>

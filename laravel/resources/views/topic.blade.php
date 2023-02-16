@@ -26,7 +26,7 @@
                 <div class="card-body">
                     <div class="media forum-item">
                         <a href="javascript:void(0)" class="card-link">
-                            <img src="{{'https://mij-hrest.com/storage/app/public' . '/users/' . \App\Models\User::find($topic->id_author)->avatar}}" class="rounded-circle" width="50" alt="{{\App\Models\User::find($topic->id_author)->name}}" />
+                            <img src="{{asset('storage') . '/users/' . \App\Models\User::find($topic->id_author)->avatar}}" class="rounded-circle" width="50" alt="{{\App\Models\User::find($topic->id_author)->name}}" />
                         </a>
                         <div class="media-body ml-3">
                             <h6><a href="{{route('user', $topic->id_author)}}"  class="text-body text-muted">{{\App\Models\User::find($topic->id_author)->name}}</a>
@@ -59,7 +59,7 @@
                 <div class="card-body">
                     <div class="media forum-item">
                         <a href="javascript:void(0)" class="card-link">
-                            <img src="{{'https://mij-hrest.com/storage/app/public'. '/users/'.\App\Models\User::find($reply->id_user)->avatar}}" class="rounded-circle" width="50" alt="{{\App\Models\User::find($reply->id_user)->avatar}}" />
+                            <img src="{{asset('storage') . '/users/'.\App\Models\User::find($reply->id_user)->avatar}}" class="rounded-circle" width="50" alt="{{\App\Models\User::find($reply->id_user)->avatar}}" />
                         </a>
                         <div class="media-body ml-3">
                             <span><a href="{{route('user', $reply->id_user)}}"  class="text-body text-muted">{{\App\Models\User::find($reply->id_user)->name}}</a>
