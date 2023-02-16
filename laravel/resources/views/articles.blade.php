@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title-block') Мій Хрест @endsection
+@section('title-block') Статті @endsection
 
 @section('content')
     <main class="container">

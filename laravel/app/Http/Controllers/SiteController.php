@@ -13,12 +13,17 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
+    public function showSviataGoraPage() {
+
+        return view('sviata-gora');
+    }
+
     public function showArticles() {
         $article = new Article();
         $link = new Link();
         $category = new Category();
 
-        return view('home', ['articles' => $article->all()->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category]);
+        return view('articles', ['articles' => $article->all()->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category]);
     }
 
     public function showArticle($id) {
@@ -82,7 +87,7 @@ class SiteController extends Controller
     public function showAlbums() {
         $link = new Link();
         $albumModel = new Album();
-        $albumsEntities = $albumModel->all();
+        $albumsEntities = $albumModel->all()->sortByDesc('id');
         $albums = [];
         foreach ($albumsEntities as $albumEntity) {
             $images = AlbumImage::where('id_album', $albumEntity->id)->get()->toArray();

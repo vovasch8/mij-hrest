@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'SiteController@showMain')->name('main');
+Route::get('/sviata-gora', 'SiteController@showSviataGoraPage')->name('sviata-gora');
 Route::get('/articles', 'SiteController@showArticles')->name('articles');
 Route::get('/article/{id}', 'SiteController@showArticle')->name('article');
 Route::get('/category-articles/{id}', 'SiteController@filterArticles')->name('category-articles');
