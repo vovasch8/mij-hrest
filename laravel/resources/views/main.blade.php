@@ -7,9 +7,10 @@
         <div class="row">
             <div class="main-block">
                 <div class="text-wrapper">
-                    <h3 class="text-center">Центр реабілітації та ранньої допомоги
-                        <br>незрячим дітям та їх батькам
-                        <br>Світло Надії
+                    <h3 class="text-center">
+                        Центр реабілітації та ранньої допомоги<br>
+                        незрячим дітям та їх батькам<br>
+                        Світло Надії
                     </h3>
                 </div>
                 <img src="{{asset('storage') . '/images/dim2.jpg'}}" data-speed="-0.75" class="img-main">
