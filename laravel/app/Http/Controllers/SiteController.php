@@ -42,7 +42,7 @@ class SiteController extends Controller
         $link = new Link();
         $category = new Category();
 
-        return view('home', ['articles' => $article->all()->where('id_category', $id)->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category, 'active' => $id]);
+        return view('articles', ['articles' => $article->all()->where('id_category', $id)->sortByDesc('id')->take(10), 'links' => $link->all(), 'category' => $category, 'active' => $id]);
     }
 
     public function loadArticles(Request $req) {
