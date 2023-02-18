@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AlbumImage;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\ForumCategory;
 use App\Models\Link;
 use App\Models\Topic;
 use App\Models\Album;
+use App\Models\AlbumImage;
+use App\Models\AlbumVideo;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -91,9 +92,11 @@ class SiteController extends Controller
         $albums = [];
         foreach ($albumsEntities as $albumEntity) {
             $images = AlbumImage::where('id_album', $albumEntity->id)->get()->toArray();
+            $videos = AlbumVideo::where('id_album', $albumEntity->id)->get()->toArray();
             $albums[] = [
                 'name' => $albumEntity->name,
-                'images' => array_column($images, 'name')
+                'images' => array_column($images, 'name'),
+                'videos' => array_column($videos, 'name')
             ];
         }
 

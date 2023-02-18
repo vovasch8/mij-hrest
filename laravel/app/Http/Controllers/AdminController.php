@@ -11,6 +11,7 @@ use App\Models\Topic;
 use App\Models\User;
 use App\Models\Album;
 use App\Models\AlbumImage;
+use App\Models\AlbumVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -65,14 +66,24 @@ class AdminController extends Controller
         $album->name = $req->title;
         $album->save();
 
-        foreach ($req->images as $key => $image) {
-            $imageAlbum = new AlbumImage();
-            $imageName = time() . $key . '.' . $image->extension();
-            Storage::disk('public')->putFileAs('/albums', $image, $imageName);
-            $imageAlbum->id_album = $album->id;
-            $imageAlbum->name = $imageName;
+        foreach ($req->entities as $key => $entity) {
+            if ($entity->extension() == 'mp4'){
+                $videoAlbum = new AlbumVideo();
+                $videoName = time() . $key . '.' . $entity->extension();
+                Storage::disk('public')->putFileAs('/albums', $entity, $videoName);
+                $videoAlbum->id_album = $album->id;
+                $videoAlbum->name = $videoName;
 
-            $imageAlbum->save();
+                $videoAlbum->save();
+            } else {
+                $imageAlbum = new AlbumImage();
+                $imageName = time() . $key . '.' . $entity->extension();
+                Storage::disk('public')->putFileAs('/albums', $entity, $imageName);
+                $imageAlbum->id_album = $album->id;
+                $imageAlbum->name = $imageName;
+
+                $imageAlbum->save();
+            }
         }
 
         return true;

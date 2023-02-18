@@ -17,14 +17,14 @@
                 <div id="messages"></div>
 
                 <div class="container">
-                    <form action="{{route('addAlbum')}}" method="post" class="dropzone" id="dropzone"enctype="multipart/form-data">
+                    <form action="{{route('addAlbum')}}" method="post" class="dropzone" id="dropzone" enctype="multipart/form-data">
                         @csrf
                         <div class="input-group mb-3">
                             <span class="input-group-text">Назва альбому</span>
                             <input id="title" type="text" class="form-control" name="name">
                             <button id="addDropAlbum" type="button" class="btn btn-success">+ Додати альбом</button>
                         </div>
-                        <h5>Перетягніть сюди фото</h5>
+                        <h5>Перетягніть сюди файли(до 20шт.)</h5>
                         <hr>
                     </form>
                 </div>
@@ -35,7 +35,7 @@
         let myDropzone = new Dropzone("#dropzone", {
             autoProcessQueue: false,
             addRemoveLinks: true,
-            acceptedFiles: '.jpeg,.jpg,.png,.gif'
+            acceptedFiles: '.jpeg,.jpg,.png,.gif,.mp4'
         });
         let addAlbum = document.getElementById('addDropAlbum');
         addAlbum.addEventListener('click', function(){
@@ -43,7 +43,7 @@
             let title = document.getElementById('title').value;
             let files = myDropzone.getAcceptedFiles();
             files.forEach(file => {
-                data.append('images[]', file);
+                data.append('entities[]', file);
             });
             data.append('title', title);
             data.append('_token', $('meta[name="csrf-token"]').attr('content'));

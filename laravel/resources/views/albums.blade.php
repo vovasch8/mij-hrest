@@ -16,9 +16,14 @@
                         <div class="p-3 col-lg-6 col-md-12 scale">
                             <div class="bg-dark p-2 border border-success rounded">
                                 <h5 class="text-center text-light fw-bold">{{$album['name']}}</h5>
-                                <div class="fotorama bg-light p-2" data-width="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs" data-loop="true">
+                                <div id="fotorama" class="fotorama bg-light p-2" data-width="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs" data-loop="true">
                                     @foreach($album['images'] as $image)
                                         <img src="{{asset('storage') . '/albums/' . $image}}" />
+                                    @endforeach
+                                    @foreach($album['videos'] as $video)
+                                            <a href="{{asset('storage') . '/albums/' . $video}}" data-video="true">
+                                                <img src="{{asset('storage') . '/albums/video.jpg'}}" alt="">
+                                            </a>
                                     @endforeach
                                 </div>
                             </div>
@@ -29,12 +34,5 @@
             @include('inc.aside')
         </div>
     </div>
-
-
-    <script>
-        lightGallery(document.getElementById('album'), {
-            thumbnail: true,
-        });
-    </script>
 @endsection
 
