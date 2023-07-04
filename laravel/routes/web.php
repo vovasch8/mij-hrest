@@ -73,4 +73,6 @@ Route::get('/admin-forum', 'AdminController@showForumPanel')->middleware(['auth'
 Route::get('/admin-albums', 'AdminController@showAlbumsPanel')->middleware(['auth'])->name('admin-albums');
 Route::post('/admin-albums/addAlbum', 'AdminController@addAlbum')->middleware(['auth'])->name('addAlbum');
 
+Route::get('sitemap.xml', 'SiteMapController@index')->name('sitemap');
+
 require __DIR__.'/auth.php';

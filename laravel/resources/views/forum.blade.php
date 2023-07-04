@@ -1,6 +1,18 @@
 @extends('layout.forum')
 
-@section('title-block') Форум @endsection
+@section('title-block') Форум - Мій Хрест @endsection
+
+@section('seo-block')
+    <meta name="description" content="Християнський форум, де люди можуть спілкуватись на християнські теми, та знаходити відповіді на свої запитання.">
+    <meta name="keywords" content="Християнський форум, форум, Християнство, Біблія, Євангеліє, Мій Хрест, mij-hrest, Християнський портал, Forum, Україна форум, Тернопіль форум, Старий Скалат, Полупанівка, Паломництво, Святі місця">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="https://mij-hrest.org/forum">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="Форум - Мій Хрест">
+    <meta property="og:description" content="Християнський форум, де люди можуть спілкуватись на християнські теми, та знаходити відповіді на свої запитання.">
+    <meta property="og:image" content="{{asset('storage') . '/images/hrest.png'}}">
+@endsection
 
 @section('content')
     <!-- Inner main -->

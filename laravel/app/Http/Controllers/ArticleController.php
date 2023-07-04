@@ -22,6 +22,7 @@ class ArticleController extends Controller
         $article = new Article();
         $article->subject = $req->input('subject');
         $article->content = $req->input('add-content');
+        $article->keywords = $req->input('keywords');
         $image = $req->file('image');
         $imageName = time() . '.' . $image->extension();
         Storage::disk('public')->putFileAs('/articles', $image, $imageName);
@@ -37,6 +38,7 @@ class ArticleController extends Controller
     public function editArticle(Request $req) {
         $article = Article::find($req->input('id'));
         $article->subject = $req->input('subject');
+        $article->keywords = $req->input('keywords');
         if ($req->input('content')) {
             $article->content = $req->input('content');
         }

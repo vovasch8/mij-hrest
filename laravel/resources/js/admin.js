@@ -59,10 +59,11 @@ editArticleBtns.forEach(btn => {
         let content = this.parentNode.parentNode.querySelector('.td-content').textContent;
         let image = this.parentNode.parentNode.querySelector('.td-image').textContent;
         let source = this.parentNode.parentNode.querySelector('.td-source').textContent;
+        let keywords = this.parentNode.parentNode.querySelector('.td-keywords').textContent;
         document.getElementById('editSubjectInput').value = subject;
         document.getElementsByClassName('note-editable')[1].innerHTML = content;
         document.getElementById('old-foto').textContent = image;
-        document.getElementById('editSourceInput').value = source;
+        document.getElementById('editKeywordsInput').value = keywords;
     });
 });
 deleteArticleBtns.forEach(btn => {

@@ -26,6 +26,10 @@
                         <span class="input-group-text">Джерело</span>
                         <input type="text" class="form-control" name="source">
                     </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Ключові слова(через ',')</span>
+                        <input type="text" class="form-control" name="keywords">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
@@ -68,6 +72,10 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Джерело</span>
                         <input id="editSourceInput" type="text" class="form-control" name="source">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Ключові слова(через ',')</span>
+                        <input id="editKeywordsInput" type="text" class="form-control" name="keywords">
                     </div>
                 </div>
                 <div class="modal-footer">

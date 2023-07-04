@@ -1,6 +1,18 @@
 @extends('layout.app')
 
-@section('title-block') Альбоми @endsection
+@section('title-block') Мій Хрест - Альбоми @endsection
+
+@section('seo-block')
+    <meta name="description" content="Альбоми - Центр Світло Надії, Полупанівська Свята Гора.">
+    <meta name="keywords" content="Альбоми Світло Надії, Фотографії Світло Надії, Фото Світло Надії, Свята Гора фото, Полупанівська свята гора фото, Центр Світло Надії, Свята Гора, допомога дітям, альбоми">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="https://mij-hrest.org/albums">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="Мій Хрест - Альбоми">
+    <meta property="og:description" content="Альбоми - Центр Світло Надії, Полупанівська Свята Гора.">
+    <meta property="og:image" content="{{asset('storage') . '/images/hrest.png'}}">
+@endsection
 
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

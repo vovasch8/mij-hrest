@@ -1,6 +1,18 @@
 @extends('layout.app')
 
-@section('title-block') Словник @endsection
+@section('title-block') Мій хрест - Християнський Словник @endsection
+
+@section('seo-block')
+    <meta name="description" content="Християнський словник із термінами з християнської ідеології.">
+    <meta name="keywords" content="Християнський словник, словник, християнство, християнські терміни, терміни, терміни з біблії, Мій Хрест, mij-hrest, біблія, християнський портал">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="https://mij-hrest.org/dictionary">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="Мій хрест - Християнський Словник">
+    <meta property="og:description" content="Християнський словник із термінами з християнської ідеології.">
+    <meta property="og:image" content="{{asset('storage') . '/images/hrest.png'}}">
+@endsection
 
 @section('content')
     <div class="container">

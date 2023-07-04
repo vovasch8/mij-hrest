@@ -6,7 +6,7 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="{{route('main')}}" class="nav-link px-2 link-dark">Головна</a></li>
+            <li><a href="{{route('main')}}" class="nav-link px-2 link-dark">Світло Надії</a></li>
             <li><a href="{{route('articles')}}" class="nav-link px-2 link-dark">Статті</a></li>
             <li><a href="{{route('albums')}}" class="nav-link px-2 link-dark">Альбоми</a></li>
             <li><a href="{{route('sviata-gora')}}" class="nav-link px-2 link-dark">Свята гора</a></li>

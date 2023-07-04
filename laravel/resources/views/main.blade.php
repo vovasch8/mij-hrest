@@ -1,6 +1,18 @@
 @extends('layout.app')
 
-@section('title-block') Головна @endsection
+@section('title-block') Світло Надії - Центр реабілітації та ранньої допомоги незрячим дітям та їх батькам @endsection
+
+@section('seo-block')
+    <meta name="description" content="Допомога незрячим дітям - Тернопільська обл., с.Старий Скалат, тел.: +380962669970, +380980782587 - Центр Світло Надії ім. св. Йоана Павла ІІ">
+    <meta name="keywords" content="Центр реабілітації - Світло Надії, Світло Надії, Мій Хрест, Допомога незрячим дітям, mij-hrest, Допомога незрячим дітям Тернопіль, допомога дітям Тернопіль, Сестри Францисканки, Старий Скалат, Полупанівка, Йоан Павло ІІ">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="https://mij-hrest.org/">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="Світло Надії - Центр реабілітації та ранньої допомоги незрячим дітям та їх батькам">
+    <meta property="og:description" content="Допомога незрячим дітям - Тернопільська обл., с.Старий Скалат, тел.: +380962669970, +380980782587 - Центр Світло Надії ім. св. Йоана Павла ІІ">
+    <meta property="og:image" content="{{asset('storage') . '/images/svitlo-nadii.jpg'}}">
+@endsection
 
 @section('content')
     <main class="container">
@@ -98,7 +110,16 @@
                     <a href="#gallery" class="close">X</a>
                     <img class="full-img" src="{{asset('storage') . '/images/main8.jpg'}}" alt="Світло надії">
                 </div>
-            </div>
+                <a href="#img9"><img class="site-img m-2" src="{{asset('storage') . '/images/main9.jpg'}}" alt="Світло надії"></a>
+                <div id="img9" class="popup">
+                    <a href="#gallery" class="close">X</a>
+                    <img class="full-img" src="{{asset('storage') . '/images/main9.jpg'}}" alt="Світло надії">
+                </div>
+                <a href="#img10"><img class="site-img m-2" src="{{asset('storage') . '/images/main10.jpg'}}" alt="Світло надії"></a>
+                <div id="img10" class="popup">
+                    <a href="#gallery" class="close">X</a>
+                    <img class="full-img" src="{{asset('storage') . '/images/main10.jpg'}}" alt="Світло надії">
+                </div>
         </div>
     </main>
 @endsection

@@ -1,6 +1,18 @@
 @extends('layout.app')
 
-@section('title-block') Свята гора @endsection
+@section('title-block') Свята гора в Полупанівці - Хресна дорога @endsection
+
+@section('seo-block')
+    <meta name="description" content="Полупанівська Свята Гора, видовищне місце, звідки  відкриваються гарні краєвиди, є Хресна дорога, під церквою є капличка із дуже смачною та цілющою водою, є декілька храмів: костел Святого Йосифа та церква Святого Духа 1878 року.">
+    <meta name="keywords" content="Свята Гора, Хресна дорога, Полупанівська хресна дорога, Полупанівська Свята Гора, Хресна дорога Тернопіль, Мій Хрест, mij-hrest, Полупанівка, Свята вода, Святі місця, Капличка, Паломництво, Подорож, Красиві місця, Красиві місця Тернопіль, Скалатчина">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="https://mij-hrest.org/sviata-gora">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="Свята гора в Полупанівці - Хресна дорога">
+    <meta property="og:description" content="Полупанівська Свята Гора, видовищне місце, звідки відкриваються гарні краєвиди, є Хресна дорога, під церквою є капличка із дуже смачною та цілющою водою, є декілька храмів: костел Святого Йосифа та церква Святого Духа 1878 року.">
+    <meta property="og:image" content="{{asset('storage') . '/images/gora5.jpg'}}">
+@endsection
 
 @section('content')
     <main class="container">

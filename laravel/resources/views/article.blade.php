@@ -2,6 +2,18 @@
 
 @section('title-block') {{$article->subject}} @endsection
 
+@section('seo-block')
+    <meta name="description" content="{{mb_substr($article->content, 0, 200)}}">
+    <meta name="keywords" content="{{$article->keywords}}">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="{{"https://mij-hrest.org/article/" . $article->id}}">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="{{$article->subject}}">
+    <meta property="og:description" content="{{mb_substr(strip_tags($article->content), 0, 200)}}">
+    <meta property="og:image" content="{{asset('storage') . '/articles/' . $article->image}}">
+@endsection
+
 @section('content')
     <main class="container">
         <div class="row g-5">

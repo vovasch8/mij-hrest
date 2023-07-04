@@ -1,6 +1,18 @@
 @extends('layout.app')
 
-@section('title-block') Статті @endsection
+@section('title-block') Мій Хрест - Статті @endsection
+
+@section('seo-block')
+    <meta name="description" content="Християнський портал Мій Хрест - де розповідається про християнство, біблію, віру, молитву та розглядаються теми пов'язані з християнством.">
+    <meta name="keywords" content="Мій Хрест, mij-hrest, Християнський портал, християнські статті, біблія, євангеліє, Український портал, християнство, Свята гора, Паломництво, Молитва, Віра в Бога, Християнські новини, Ісус Христос, Бог, Діва Марія, Церква, Костел, Хресна дорога, Закон Божий, портал, статті">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="https://mij-hrest.org/articles">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="Мій Хрест - Статті">
+    <meta property="og:description" content="Християнський портал Мій Хрест - де розповідається про християнство, біблію, та розглядаються теми пов'язані з християнством.">
+    <meta property="og:image" content="{{asset('storage') . '/images/hrest.png'}}">
+@endsection
 
 @section('content')
     <main class="container">

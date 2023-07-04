@@ -2,6 +2,18 @@
 
 @section('title-block') {{$topic->topic}} @endsection
 
+@section('seo-block')
+    <meta name="description" content="{{mb_substr($topic->message, 0, 200)}}">
+    <meta name="keywords" content="{{"Мій хрест форум, Мій Хрест, mij-hrest, форум, християнський форум, " . $topic->topic . ", " . $topic->message}}">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="{{"https://mij-hrest.org/forum/topic/" . $topic->id}}">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="{{$topic->topic}}">
+    <meta property="og:description" content="{{mb_substr(strip_tags($topic->message), 0, 200)}}">
+    <meta property="og:image" content="{{asset('storage') . '/images/hrest.png'}}">
+@endsection
+
 @section('content')
     <!-- Inner main -->
     <div class="inner-main">

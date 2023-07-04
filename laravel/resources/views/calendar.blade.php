@@ -1,6 +1,18 @@
 @extends('layout.app')
 
-@section('title-block') Календар @endsection
+@section('title-block') Мій Хрест - Календар @endsection
+
+@section('seo-block')
+    <meta name="description" content="Католицький календар із святами.">
+    <meta name="keywords" content="Католицький календар, календар, Мій Хрест, mij-hrest, Католицькі свята календар, Католицькі свята, свята календар">
+    <meta name="author" content="Mij Hrest">
+
+    <meta property="og:url" content="https://mij-hrest.org/calendar">
+    <meta property="og:type" content="Page">
+    <meta property="og:title" content="Мій хрест - Католицький календар">
+    <meta property="og:description" content="Католицький календар із святами.">
+    <meta property="og:image" content="{{asset('storage') . '/images/hrest.png'}}">
+@endsection
 
 @section('content')
     <div class="container">
